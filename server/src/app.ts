@@ -443,6 +443,7 @@ export async function createApp(
     chatWebhookPublicBaseUrl?: string;
     authReady: boolean;
     companyDeletionEnabled: boolean;
+    oauthCallbackAppOrigin?: string | null;
     announcements?: { enabled: boolean; feedUrl: string };
     instanceId?: string;
     hostVersion?: string;
@@ -892,6 +893,7 @@ export async function createApp(
       trustedLocalStdioRuntimeHost,
       toolGateway,
       connectionIntentHeartbeat,
+      oauthCallbackAppOrigin: opts.oauthCallbackAppOrigin,
     }),
   );
   api.use(connectionIntentBoardRoutes(db, connectionIntentHeartbeat));
